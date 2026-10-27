@@ -2,16 +2,28 @@ import { Outlet } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import { useContext } from "react";
 import { AppContext } from "../context/ContextProvider";
+import { PanelLeft } from "lucide-react";
 
 const Layout = () => {
-  const { showSidebar } = useContext(AppContext);
+  const { showSidebar, setShowSidebar } = useContext(AppContext);
 
   return (
     <>
       <Sidebar />
       <div
-        className={`p-5 ${showSidebar && "pl-70"} transition-all duration-300`}
+        className={`p-10 ${showSidebar && "pl-70"} transition-all duration-300`}
       >
+        <div className="flex items-center gap-2">
+          {!showSidebar && (
+            <button
+              onClick={() => setShowSidebar(true)}
+              className="rounded-lg p-2 bg-cards text-white hover:bg-gray-800"
+            >
+              <PanelLeft size={15} />
+            </button>
+          )}
+          <h1 className="font-semibold text-2xl">Welcome back, Naneu</h1>
+        </div>
         <Outlet />
       </div>
     </>
