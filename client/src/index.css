@@ -11,3 +11,11 @@ body {
   @apply bg-background;
   color: white;
 }
+
+@utility scrollbar-hide {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  scrollbar-width: none;
+}
