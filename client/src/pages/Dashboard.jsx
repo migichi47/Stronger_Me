@@ -3,23 +3,8 @@ import { useContext } from "react";
 import { AppContext } from "../context/ContextProvider";
 
 const Dashboard = () => {
-  const { showSidebar, setShowSidebar } = useContext(AppContext);
 
-  return (
-    <div>
-      <div className="flex items-center gap-2">
-        {!showSidebar && (
-          <button
-            onClick={() => setShowSidebar(true)}
-            className="rounded-lg p-2 bg-cards text-white hover:bg-gray-800"
-          >
-            <PanelLeft size={15} />
-          </button>
-        )}
-        <h1 className="font-semibold text-2xl">Welcome back, Naneu</h1>
-      </div>
-    </div>
-  );
+  return <div></div>;
 };
 
 export default Dashboard;
