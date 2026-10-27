@@ -11,7 +11,7 @@ const Layout = () => {
     <>
       <Sidebar />
       <div
-        className={`p-10 ${showSidebar && "pl-70"} transition-all duration-300 space-y-10`}
+        className={`p-10 ${showSidebar && "pl-70"} transition-all duration-300 `}
       >
         <div className="flex items-center gap-2">
           {!showSidebar && (
@@ -26,7 +26,7 @@ const Layout = () => {
               <PanelLeft size={15} />
             </button>
           )}
-          <h1 className="font-semibold text-2xl">Welcome back, Naneu Junior</h1>
+          <h1 className="font-semibold text-2xl">Welcome back, Naneu J</h1>
         </div>
         <Outlet />
       </div>
