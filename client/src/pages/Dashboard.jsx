@@ -3,6 +3,7 @@ import { dashboardCards } from "../data/dashboardCards";
 import NonNegotiableTasks from "../components/NonNegotiableTasks";
 import DashboardCalendar from "../components/Calendar";
 import { dailyRecords } from "../data/dailyRecords";
+import LongTermGoals from "../components/LongTermGoals";
 
 const Dashboard = () => {
   return (
@@ -15,6 +16,7 @@ const Dashboard = () => {
       </div>
       <div className="flex justify-between gap-5">
         <NonNegotiableTasks />
+        <LongTermGoals />
         <DashboardCalendar dailyRecords={dailyRecords} />
       </div>
     </div>

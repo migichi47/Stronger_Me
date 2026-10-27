@@ -18,21 +18,21 @@ const NonNegotiableTasks = () => {
   };
 
   return (
-    <div className="bg-cards rounded-xl py-5 px-10 w-full space-y-8 min-w-[40vw] relative transition-all duration-300">
+    <div className="bg-cards rounded-xl py-5 px-10 w-full space-y-8 relative transition-all duration-300">
       <h1 className="font-semibold text-2xl">Pending Non-negotiables</h1>
       <div className="border border-success rounded-xl overflow-y-auto scrollbar-hide max-h-75">
         {nonNegotiableTasks.map((task, i) => (
           <p
-            className={`px-4 py-2 text-lg ${i > 0 && "border-t border-success"} flex items-center justify-between pr-6`}
+            className={`px-4 py-4 text-sm ${i > 0 && "border-t border-success"} flex items-center gap-3 pr-6`}
             key={i}
           >
-            {task}
             <input
               type="checkbox"
               className="h-5 w-5 accent-relapse cursor-pointer"
               checked={checkedTasks.includes(task)}
               onChange={() => handleCheck(task)}
             />
+            {task}
           </p>
         ))}
       </div>
