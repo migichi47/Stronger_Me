@@ -16,7 +16,10 @@ const Layout = () => {
         <div className="flex items-center gap-2">
           {!showSidebar && (
             <button
-              onClick={() => setShowSidebar(true)}
+              onClick={() => {
+                setShowSidebar(true);
+                localStorage.setItem("sidebar", JSON.stringify("true"));
+              }}
               className="rounded-lg p-2 bg-cards text-white hover:bg-gray-800 cursor-pointer hover:text-relapse
               transition-colors duration-300"
             >

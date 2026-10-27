@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { CircleUser, LogOut, X } from "lucide-react";
 import { AppContext } from "../context/ContextProvider";
 import { navLinks } from "../data/navLinks.js";
+import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
   const { showSidebar, setShowSidebar } = useContext(AppContext);
@@ -22,28 +23,33 @@ const Sidebar = () => {
         />
 
         <button
-          onClick={() => setShowSidebar(false)}
+          onClick={() => {
+            setShowSidebar(false);
+            localStorage.setItem("sidebar", JSON.stringify("false"));
+          }}
           className="absolute right-5 top-10"
           aria-label="Close sidebar"
         >
-          <X
-            className="cursor-pointer hover:text-relapse transition duration-300"
-            onClick={() => setShowSidebar(false)}
-          />
+          <X className="cursor-pointer hover:text-relapse transition duration-300" />
         </button>
         <nav className="flex flex-col">
           {navLinks.map((navLink, i) => {
             const Icon = navLink.icon;
             return (
-              <a
+              <NavLink
                 key={i}
-                href={navLink.linkTo}
-                className="flex items-center gap-2 px-6 py-4 hover:bg-gray-800"
-                onClick={() => setShowSidebar(false)}
+                to={navLink.linkTo}
+                className={({ isActive }) =>
+                  `flex items-center gap-2 px-6 py-4 transition-all duration-75 ${
+                    isActive
+                      ? "bg-relapse/70 text-white"
+                      : "text-gray-300 hover:bg-relapse/20"
+                  }`
+                }
               >
                 <Icon />
                 <span className="capitalize">{navLink.name}</span>
-              </a>
+              </NavLink>
             );
           })}
         </nav>
