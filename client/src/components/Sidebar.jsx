@@ -2,10 +2,11 @@ import { useContext } from "react";
 import { CircleUser, LogOut, X } from "lucide-react";
 import { AppContext } from "../context/ContextProvider";
 import { navLinks } from "../data/navLinks.js";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
   const { showSidebar, setShowSidebar } = useContext(AppContext);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -20,6 +21,7 @@ const Sidebar = () => {
           src="https://res.cloudinary.com/pzmxzqp0/image/upload/v1793056049/WhatsApp_Image_2026-10-27_at_1.59.04_AM-remover-bg.png"
           alt="Logo"
           className="h-16 w-30 cursor-pointer object-cover"
+          onClick={() => navigate("/")}
         />
 
         <button

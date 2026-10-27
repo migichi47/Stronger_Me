@@ -26,7 +26,7 @@ const Layout = () => {
               <PanelLeft size={15} />
             </button>
           )}
-          <h1 className="font-semibold text-2xl">Welcome back, span</h1>
+          <h1 className="font-semibold text-2xl">Welcome back, Naneu Junior</h1>
         </div>
         <Outlet />
       </div>
