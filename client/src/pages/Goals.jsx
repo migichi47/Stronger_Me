@@ -212,7 +212,7 @@ const Goals = () => {
 
                 <div className="min-w-0 flex-1 space-y-2">
                   <h3
-                    className={`break-words font-medium ${
+                    className={`wrap-break-word font-medium ${
                       item.done ? "text-gray-400 line-through" : ""
                     }`}
                   >
@@ -245,7 +245,7 @@ const Goals = () => {
                   </div>
 
                   {item.notes && (
-                    <p className="whitespace-pre-wrap break-words text-sm text-gray-400">
+                    <p className="whitespace-pre-wrap wrap-break-word text-sm text-gray-400">
                       {item.notes}
                     </p>
                   )}

@@ -9,20 +9,27 @@ const getDateKey = (date) => {
   return `${year}-${month}-${day}`;
 };
 
-const DashboardCalendar = ({ dailyRecords = {} }) => {
-  const [currentMonth, setCurrentMonth] = useState(() => new Date());
+const WeekdayHeadings = () => {
+  return (
+    <div className="mb-3 grid grid-cols-7 text-center">
+      {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((day) => (
+        <div key={day} className="py-2 text-xs font-medium text-gray-400">
+          {day}
+        </div>
+      ))}
+    </div>
+  );
+};
 
+const Calendar = ({ dailyRecords = {} }) => {
+  const [currentMonth, setCurrentMonth] = useState(() => new Date());
   const year = currentMonth.getFullYear();
   const month = currentMonth.getMonth();
-
-  // Number of days in the current month
   const daysInMonth = new Date(year, month + 1, 0).getDate();
 
   // Monday-first offset: Monday = 0, Sunday = 6
   const firstDayOffset = (new Date(year, month, 1).getDay() + 6) % 7;
-
   const todayKey = getDateKey(new Date());
-
   const monthName = currentMonth.toLocaleDateString("en", {
     month: "long",
     year: "numeric",
@@ -31,14 +38,12 @@ const DashboardCalendar = ({ dailyRecords = {} }) => {
   const previousMonth = () => {
     setCurrentMonth(new Date(year, month - 1, 1));
   };
-
   const nextMonth = () => {
     setCurrentMonth(new Date(year, month + 1, 1));
   };
 
   return (
-    <div className="w-full max-w-md rounded-2xl bg-gray-900 p-5 text-white">
-      {/* Month navigation */}
+    <div className="w-full max-w-md rounded-2xl bg-cards p-5 text-white">
       <div className="mb-6 flex items-center justify-between">
         <button
           onClick={previousMonth}
@@ -47,9 +52,7 @@ const DashboardCalendar = ({ dailyRecords = {} }) => {
         >
           <ChevronLeft size={20} />
         </button>
-
         <h2 className="text-lg font-semibold">{monthName}</h2>
-
         <button
           onClick={nextMonth}
           aria-label="Next month"
@@ -58,33 +61,18 @@ const DashboardCalendar = ({ dailyRecords = {} }) => {
           <ChevronRight size={20} />
         </button>
       </div>
-
-      {/* Weekday headings */}
-      <div className="mb-3 grid grid-cols-7 text-center">
-        {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((day) => (
-          <div key={day} className="py-2 text-xs font-medium text-gray-400">
-            {day}
-          </div>
-        ))}
-      </div>
-
-      {/* DashboardCalendar dates */}
+      <WeekdayHeadings />
       <div className="grid grid-cols-7 gap-y-2">
-        {/* Empty spaces before the first day */}
         {Array.from({ length: firstDayOffset }).map((_, index) => (
           <div key={`empty-${index}`} />
         ))}
 
         {Array.from({ length: daysInMonth }, (_, index) => {
           const day = index + 1;
-
           const date = new Date(year, month, day);
           const dateKey = getDateKey(date);
-
           const isComplete = dailyRecords[dateKey]?.completedAll === true;
-
           const isToday = dateKey === todayKey;
-
           return (
             <div key={dateKey} className="flex justify-center">
               <div
@@ -115,7 +103,6 @@ const DashboardCalendar = ({ dailyRecords = {} }) => {
         })}
       </div>
 
-      {/* Legend */}
       <div className="mt-6 flex items-center justify-center gap-5 text-xs text-gray-400">
         <div className="flex items-center gap-2">
           <span className="h-3 w-3 rounded-full bg-green-500" />
@@ -131,4 +118,4 @@ const DashboardCalendar = ({ dailyRecords = {} }) => {
   );
 };
 
-export default DashboardCalendar;
+export default Calendar;
