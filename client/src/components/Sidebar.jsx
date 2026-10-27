@@ -1,16 +1,7 @@
 import { useContext } from "react";
-import {
-  CalendarDays,
-  ChartNoAxesColumn,
-  CircleUser,
-  House,
-  LogOut,
-  NotebookPen,
-  Settings,
-  X,
-} from "lucide-react";
-import { TbTargetArrow } from "react-icons/tb";
+import { CircleUser, LogOut, X } from "lucide-react";
 import { AppContext } from "../context/ContextProvider";
+import { navLinks } from "../data/navLinks.js";
 
 const Sidebar = () => {
   const { showSidebar, setShowSidebar } = useContext(AppContext);
@@ -41,53 +32,20 @@ const Sidebar = () => {
           />
         </button>
         <nav className="flex flex-col">
-          <a
-            href="/"
-            className="flex items-center gap-2 px-6 py-4 hover:bg-gray-800"
-            onClick={() => setShowSidebar(false)}
-          >
-            <House />
-            <span>Dashboard</span>
-          </a>
-          <a
-            href="#"
-            className="flex items-center gap-2 px-6 py-4 hover:bg-gray-800"
-            onClick={() => setShowSidebar(false)}
-          >
-            <CalendarDays />
-            <span>My Calendar</span>
-          </a>
-          <a
-            href="#"
-            className="flex items-center gap-2 px-6 py-4 hover:bg-gray-800"
-            onClick={() => setShowSidebar(false)}
-          >
-            <ChartNoAxesColumn />
-            <span>Stats</span>
-          </a>
-          <a
-            href="#"
-            className="flex items-center gap-2 px-6 py-4 hover:bg-gray-800"
-            onClick={() => setShowSidebar(false)}
-          >
-            <TbTargetArrow className="text-2xl" />
-            <span>Goals</span>
-          </a>
-          <a
-            href="#"
-            className="flex items-center gap-2 px-6 py-4 hover:bg-gray-800"
-            onClick={() => setShowSidebar(false)}
-          >
-            <NotebookPen />
-            <span>Notes</span>
-          </a>
-          <a
-            href="#"
-            className="flex items-center gap-2 px-6 py-4 hover:bg-gray-800"
-          >
-            <Settings />
-            <span>Settings</span>
-          </a>
+          {navLinks.map((navLink, i) => {
+            const Icon = navLink.icon;
+            return (
+              <a
+                key={i}
+                href={navLink.linkTo}
+                className="flex items-center gap-2 px-6 py-4 hover:bg-gray-800"
+                onClick={() => setShowSidebar(false)}
+              >
+                <Icon />
+                <span className="capitalize">{navLink.name}</span>
+              </a>
+            );
+          })}
         </nav>
         <div
           className="absolute bottom-20 left-0 flex w-full flex-col gap-6 px-6

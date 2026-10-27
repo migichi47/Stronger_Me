@@ -4,7 +4,6 @@ import { AppContext } from "../context/ContextProvider";
 
 const Dashboard = () => {
   const { showSidebar, setShowSidebar } = useContext(AppContext);
-  console.log(showSidebar);
 
   return (
     <div>
