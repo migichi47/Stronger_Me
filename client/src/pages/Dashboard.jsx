@@ -4,11 +4,11 @@ import NonNegotiableTasks from "../components/NonNegotiableTasks";
 
 const Dashboard = () => {
   return (
-    <div className="pt-10 space-y-10">
+    <div className="space-y-10">
       <div className="flex justify-center gap-8">
         <ProgressCircle days={12} />
-        {dashboardCards.map((card) => (
-          <DashboardCard {...card} />
+        {dashboardCards.map((card, i) => (
+          <DashboardCard key={i} {...card} />
         ))}
       </div>
       <div className="flex justify-between">
