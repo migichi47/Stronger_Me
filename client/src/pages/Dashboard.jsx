@@ -1,8 +1,10 @@
 import { DashboardCard, ProgressCircle } from "../components/DashboardCards";
 import { dashboardCards } from "../data/dashboardCards";
 import NonNegotiableTasks from "../components/NonNegotiableTasks";
+import DashboardCalendar from "../components/DashboardCalendar";
 
 const Dashboard = () => {
+
   return (
     <div className="space-y-10">
       <div className="flex justify-center gap-8">
@@ -11,8 +13,9 @@ const Dashboard = () => {
           <DashboardCard key={i} {...card} />
         ))}
       </div>
-      <div className="flex justify-between">
+      <div className="flex justify-between gap-5">
         <NonNegotiableTasks />
+        <DashboardCalendar />
       </div>
     </div>
   );

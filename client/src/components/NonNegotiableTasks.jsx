@@ -18,7 +18,7 @@ const NonNegotiableTasks = () => {
   };
 
   return (
-    <div className="bg-cards rounded-xl py-5 px-10 space-y-8 w-fit min-w-[40vw] relative transition-all duration-300">
+    <div className="bg-cards rounded-xl py-5 px-10 w-full space-y-8 min-w-[40vw] relative transition-all duration-300">
       <h1 className="font-semibold text-2xl">Pending Non-negotiables</h1>
       <div className="border border-success rounded-xl overflow-y-auto scrollbar-hide max-h-75">
         {nonNegotiableTasks.map((task, i) => (
