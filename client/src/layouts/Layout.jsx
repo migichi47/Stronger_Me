@@ -11,7 +11,7 @@ const Layout = () => {
     <>
       <Sidebar />
       <div
-        className={`p-10 ${showSidebar && "pl-70"} transition-all duration-300`}
+        className={`p-10 ${showSidebar && "pl-70"} transition-all duration-300 space-y-10`}
       >
         <div className="flex items-center gap-2">
           {!showSidebar && (
