@@ -29,9 +29,9 @@ export const navLinks = [
     name: "Goals",
   },
   {
-    linkTo: "/notes",
+    linkTo: "/journal",
     icon: NotebookPen,
-    name: "Notes",
+    name: "Journal",
   },
   {
     linkTo: "/settings",

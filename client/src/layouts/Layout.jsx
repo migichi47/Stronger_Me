@@ -17,12 +17,13 @@ const Layout = () => {
           {!showSidebar && (
             <button
               onClick={() => setShowSidebar(true)}
-              className="rounded-lg p-2 bg-cards text-white hover:bg-gray-800"
+              className="rounded-lg p-2 bg-cards text-white hover:bg-gray-800 cursor-pointer hover:text-relapse
+              transition-colors duration-300"
             >
               <PanelLeft size={15} />
             </button>
           )}
-          <h1 className="font-semibold text-2xl">Welcome back, Naneu</h1>
+          <h1 className="font-semibold text-2xl">Welcome back, span</h1>
         </div>
         <Outlet />
       </div>
