@@ -354,6 +354,7 @@ export default function MyCalendar() {
             </div>
           </div>
 
+          {/* week view */}
           {view === "week" && (
             <div>
               <div className="grid grid-cols-7 border-b border-gray-700">
@@ -367,8 +368,8 @@ export default function MyCalendar() {
                     <button
                       key={key}
                       onClick={() => setSelectedDate(day)}
-                      className={`flex min-w-0 flex-col items-center gap-2 border-r border-gray-700 px-1 py-4 transition last:border-r-0 sm:py-5 ${
-                        active ? "bg-success" : "hover:bg-gray-50"
+                      className={`flex min-w-0 flex-col items-center gap-2 cursor-pointer border-r border-gray-700 px-1 py-4 transition last:border-r-0 sm:py-5 ${
+                        active ? "bg-gray-500" : "hover:bg-gray-700"
                       }`}
                     >
                       <span
