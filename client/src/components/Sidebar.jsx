@@ -11,10 +11,8 @@ const Sidebar = () => {
   return (
     <>
       <aside
-        className={`bg-cards fixed left-0 top-0 z-50
-          h-screen w-64 py-5 space-y-4
-          transition-transform duration-300 ease-in-out
-          ${showSidebar ? "translate-x-0" : "-translate-x-full"}`}
+        className={`bg-cards left-0 top-0 z-50 h-screen w-64 py-5 space-y-4 fixed transition-transform
+          duration-300 ease-in-out ${showSidebar ? "translate-x-0" : "-translate-x-full"}`}
       >
         {/* Logo */}
         <img
@@ -48,6 +46,9 @@ const Sidebar = () => {
                       : "text-gray-300 hover:bg-relapse/20"
                   }`
                 }
+                onClick={() => {
+                  window.innerWidth < 768 && setShowSidebar(false);
+                }}
               >
                 <Icon />
                 <span className="capitalize">{navLink.name}</span>

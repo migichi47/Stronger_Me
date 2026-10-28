@@ -1,6 +1,6 @@
 import { FaFireFlameCurved } from "react-icons/fa6";
 
-const cardStyles = `bg-cards w-fit px-20 py-6 rounded-xl flex flex-col items-center gap-4 p-5 cursor-pointer
+const cardStyles = `bg-cards w-full py-6 rounded-xl flex flex-col items-center gap-4 cursor-pointer
   hover:shadow-sm hover:shadow-success/50 transition-all`;
 
 export const DashboardCard = ({ title, icon, value }) => {

@@ -12,7 +12,7 @@ const Layout = () => {
       <Sidebar />
       <Header />
       <div
-        className={`px-10 ${showSidebar && "pl-70"} mt-30 transition-all duration-300 space-y-10`}
+        className={`px-10 ${showSidebar && "sm:pl-70"} mt-30 transition-all duration-300 space-y-10`}
       >
         <Outlet />
       </div>
